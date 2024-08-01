@@ -1,0 +1,43 @@
+[
+    {
+        "qa_pairs": [
+            {
+                "context": "No context provided",
+                "question": "Who has the highest goals in men's world international football?",
+                "short_answers": [
+                    "Daei",
+                    "Ali Daei"
+                ],
+                "wikipage": null
+            },
+            {
+                "context": "No context provided",
+                "question": "Who has the highest goals all-time in men's football?",
+                "short_answers": [
+                    "Bican",
+                    "Josef Bican"
+                ],
+                "wikipage": null
+            },
+            {
+                "context": "The first player to reach 100 international goals was Italian Elisabetta Vignotto. Abby Wambach scored 100 goals in 9 years, while Christine Sinclair reached the milestone in just under 10 years while Mia Hamm is the youngest player to score 100 international goals at the age of 26 years 185 days. Most played exclusively in the forward position, with Kristine Lilly and Michelle Akers having also played as midfielder. All players scored at a high average rate of more than one goal every three matches. International goals in this list should not include goals scored in penalty-shoot-out; see Penalty shootout (association football). Players who are currently active at international level are indicated in bold type background.",
+                "question": "Who has the highest goals in women's world international football?",
+                "short_answers": [
+                    "Sinclair",
+                    "Christine Sinclair"
+                ],
+                "wikipage": "List of women's footballers with 100 or more international goals ..."
+            }
+        ],
+        "question": "Who has the highest goals in world football?",
+        "docs": [
+                "Document [1](Argentina\u2013Brazil football rivalry): \"Football Player of the Century\", by IFFHS International Federation of Football History and Statistics, 1999, \"South America Football Player of the Century\", by IFFHS International Federation of Football History and Statistics. Pel\u00e9's 1281 goals are recognized by FIFA as the highest total achieved by a professional footballer, although the Soccer Statistic Foundation (rssf) recognizes only 767 goals in official mode, occupying the third place after Josef Bican (805) and Romario (772). For his part, Maradona has been named the best soccer player in World Cup history both by The Times and FourFourTwo, publication that also rewarded him as the \"Best\n",
+
+                "Document [2](Godfrey Chitalu): have beaten Gerd M\u00fcller's record of 85 goals in a year, the Football Association of Zambia claimed that the world record actually pertained to Godfrey Chitalu who had scored 116 goals (possibly 117) during the 1972 calendar year and 107 during the 1972 season. The difference of goals is due to first 9 goals being scored before the season officially started. The Football Association of Zambia presented the evidence to FIFA but a spokesperson responded that they would ratify neither Lionel Messi's nor Chitalu's records as they do not keep statistical track of domestic competitions. Nonetheless, it could constitute the\n",
+
+                "Document [3](Godfrey Chitalu): highest official tally claimed by a national football association. Chitalu made his international debut on 29 June 1968 in a friendly match against Uganda in Lusaka which Zambia won 2\u20131. He scored his first goal in a 2\u20132 draw against the same team five days later. Chitalu played a prominent role during the World Cup qualification matches against Sudan with Zambia being eliminated on a strange rule which was peculiar to Africa and favoured the team that won the second leg. Despite the aggregate score being tied at 6\u20136 after Zambia won the first leg 4\u20132 and lost the return\n"
+        ],
+
+        "answer": "The players with the highest all-time goals and highest men's and women's international football goals differ. The player with the highest all-time men's football goals is Josef Bican, who in 2020 was recognized by FIFA, the international governing body of football, as the record scorer with an estimated 805 goals. Christine Sinclair has the highest goals in women's international football with 187 and is the all-time leader for international goals scored for men or women. Cristiano Ronaldo and Ali Daei are currently tied for leading goalscorer in the history of men's international football with 109."
+    }
+]
