@@ -13,21 +13,21 @@ if __name__ == '__main__':
 
     # SETTING ARGS
     parser = argparse.ArgumentParser()
-    parser.add_argument("--save_path", type=str, default='res.json', help="Path to the config file")
+    parser.add_argument("--save_path", type=str, default='res.jsonl', help="Path to the config file")
     parser.add_argument("--model", type=str, default='gpt-3.5-turbo', help="model name or path")
     parser.add_argument("--shots", type=int, default=2, help="number of shots")
     parser.add_argument("--ndoc", type=int, default=5, help="number of docs")
-    parser.add_argument("--pr", type=bool, default=False, help="use cite PR")
-    parser.add_argument("--rouge", type=bool, default=False, help="use rouge")
+    parser.add_argument("--pr",  action='store_true', help="use cite PR")
+    parser.add_argument("--rouge",  action='store_true', help="use rouge")
     parser.add_argument("--temp", type=float, default=0.5, help="temperature")
-    parser.add_argument("--qa", type=bool, default=False, help="eval qa")
-    parser.add_argument("--length", type=bool, default=True, help="eval length")
-    parser.add_argument("--claims", type=bool, default=False, help="eval length")
-    parser.add_argument("--qampari", type=str, default=False, help="eval qampari")
+    parser.add_argument("--qa",  action='store_true', help="eval qa")
+    parser.add_argument("--length",  default=True, help="eval length")
+    parser.add_argument("--claims",  action='store_true', help="eval length")
+    parser.add_argument("--qampari", action='store_true', help="eval qampari")
     parser.add_argument("--dataset", type=str, default='data/asqa_eval_gtr_top100.json', help="dataset")
     parser.add_argument("--demo", type=str, default='prompts/asqa_default.json', help="demo")
     parser.add_argument("--doctype", type=str, default='text', help="demo")
-    parser.add_argument("--mode", type=str, default='vanilla', help="mode")
+    parser.add_argument("--mode", type=str, default='vanilla', help="mode: text, summary, extraction or VTG")
     parser.add_argument("--data_num", type=int, default=200, help="num of data")
     args = parser.parse_args()
 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     
 
-    pipeline = Pipeline(save_path=args.save_path , llm = llm, module = [simplifier,verifier,query_generator],head_prompt_maker=prompt, evaluator=eval,dataset = dataset,train_data=True)
+    pipeline = Pipeline(save_path=args.save_path , llm = llm, module = [simplifier,verifier,query_generator],head_prompt_maker=prompt, evaluator=eval,dataset = dataset, train_data=True)
     retriever = Retriever(prompt_maker=retriever_prompt,pipeline=pipeline, retrieve_by='bm25',documents=documents, topk=1, merge = True)
     if args.mode == 'vanilla':
         llm.set_output(post_processing = one_paragraph, cond = lambda self: True, end=True)

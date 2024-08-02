@@ -21,21 +21,21 @@ if __name__ == '__main__':
     parser.add_argument("--model", type=str, default='gpt-3.5-turbo', help="model name or path")
     parser.add_argument("--shots", type=int, default=2, help="number of shots")
     parser.add_argument("--ndoc", type=int, default=5, help="number of docs")
-    parser.add_argument("--pr", type=bool, default=False, help="use cite PR")
-    parser.add_argument("--rouge", type=bool, default=False, help="use rouge")
+    parser.add_argument("--pr", action='store_true', help="use cite PR")
+    parser.add_argument("--rouge", action='store_true', help="use rouge")
     parser.add_argument("--temp", type=float, default=0.5, help="temperature")
-    parser.add_argument("--qa", type=bool, default=False, help="eval qa")
+    parser.add_argument("--qa", action='store_true', help="eval qa")
+    parser.add_argument("--mauve",  action='store_true', help="eval mauve")
     parser.add_argument("--length", type=bool, default=True, help="eval length")
-    parser.add_argument("--claims", type=bool, default=False, help="eval length")
+    parser.add_argument("--claims", action='store_true', help="eval claims")
     parser.add_argument("--qampari", type=str, default=False, help="eval qampari")
     parser.add_argument("--dataset", type=str, default='data/asqa_eval_gtr_top100.json', help="dataset")
     parser.add_argument("--demo", type=str, default='prompts/asqa_default.json', help="demo")
     parser.add_argument("--doctype", type=str, default='text', help="demo")
-    parser.add_argument("--data_num", type=int, default=200, help="num of data")
-    parser.add_argument("--mode", type=str, default='text', help="mode-granularity")
+    parser.add_argument("--data_num", type=int, default=1000, help="num of data")
+    parser.add_argument("--mode", type=str, default='text', help="mode-granularity: text, extraction or summary")
     parser.add_argument("--k", type=float, default=1.5, help="coefficient of em")
     parser.add_argument("--topk", type=int, default=2, help="topk")
-    parser.add_argument("--doc_num", type=int, default=6, help="topk")
     args = parser.parse_args()
 
     def score(data):
@@ -60,7 +60,7 @@ if __name__ == '__main__':
     shots = '\n\n'.join(NewALCEVanillaPrompt().load_data([demo['demos'][1],demo['demos'][3]],'question', answer = lambda data: remove_citations(sentence('first')(data['answer'])['first']), INST = lambda _: llm_instruction, docs = lambda data: ''.join(ALCEDocPrompt().default_load_data(data['docs'][1:2]))))
 
 
-    documents = [DocPrompt().load_data(list(enumerate(data['docs'][:args.doc_num])),Title = lambda data: data[1]['title'], Passage = lambda data: data[1][args.mode]) for data in dataset]
+    documents = [DocPrompt().load_data(list(enumerate(data['docs'])),Title = lambda data: data[1]['title'], Passage = lambda data: data[1][args.mode]) for data in dataset]
     
     dataset = PromptDataset(dataset,'question','answer','answers','qa_pairs','claims', docs = lambda data: ALCEDocPrompt().default_load_data(data['docs'][:args.ndoc]))[:data_num]
     

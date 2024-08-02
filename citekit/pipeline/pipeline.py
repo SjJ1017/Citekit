@@ -101,8 +101,6 @@ class Pipeline():
 
     def run_on_dataset(self,datakeys,init_docs=None,initial_module= None,start=0):
         if self.save_path:
-            with open(self.save_path, 'a', encoding='utf-8') as file:
-                file.write('[')
             for i in range(start,len((self.dataset))):
                 self.data_index = i
                 try:
@@ -110,8 +108,6 @@ class Pipeline():
                 except Exception as e:
                     print(f'Error: {e}, skipping data {i}')
                     traceback.print_exc()
-            with open(self.save_path, 'a', encoding='utf-8') as file:
-                file.write(']')
         else:
             for i in range(start,len((self.dataset))):
                 self.data_index = i
@@ -262,9 +258,8 @@ class Pipeline():
         write_down = {'data':self.get_data(), 'doc_cache':self.doc_cache.show_docs(), 'log': self.log.copy(),'output':self.output,'result': self.result,'token_used':llm_token_used}
 
         with open(self.save_path, 'a', encoding='utf-8') as file:
-            json.dump(write_down, file, indent=4)
-            if self.data_index < len(self.dataset) - 1:
-                file.write(',')
+            json_line = json.dumps(write_down, indent=4)
+            file.write(json_line + '\n')
 
     def export_training_data(self):
         flattened_data = [flatten_dict(self.result)]
