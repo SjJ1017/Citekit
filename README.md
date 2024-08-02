@@ -3,10 +3,6 @@
 <a href="///" target="_blank"><img src=//></a><a href="https://github.com/SjJ1017/Citekit/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green"></a>
 
 
-<div align="center">
-<a><img alt="Static Badge" src="https://img.shields.io/badge/made_with-Python-blue"></a>
-</div>
-
 ## Overview
 
 **Citekit** is an open-source, extensible toolkit designed to facilitate the implementation and evaluation of citation generation methods for Large Language Models (LLMs). It offers a modular framework to standardize citation tasks, enabling reproducible and comparable research while fostering the development of new approaches to improve citation quality.
