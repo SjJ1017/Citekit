@@ -1,6 +1,6 @@
 # Citekit
 
-<a href="///" target="_blank"><img src=//></a><a href="https://github.com/SjJ1017/Citekit/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green"></a>
+<a href="///" target="_blank"><img src=//></a><a href="https://github.com/SjJ1017/Citekit/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green"></a>
 
 
 
