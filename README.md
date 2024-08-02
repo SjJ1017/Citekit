@@ -2,7 +2,9 @@
 
 <a href="///" target="_blank"><img src=//></a><a href="https://github.com/SjJ1017/Citekit/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green"></a>
 
-
+<div align="center">
+<a><img alt="Static Badge" src="https://img.shields.io/badge/made_with-Python-blue"></a>
+</div>
 
 ## Overview
 
@@ -37,7 +39,17 @@ export PYTHONPATH="$PWD"
 python methods/ALCE_Vani_Summ_VTG.py --mode text --pr --rouge --qa
 ```
 
-Some files contain multiple methods. Use --mode to specify the desired method. For any pre-defined metrics, use --metric to enable it.
+Some files contain multiple methods. Use --mode to specify the desired method. For any pre-defined metrics, use --metric to enable it. Available metrics include:
+- `rouge`, `mauve` and `length`
+- `qa`(for ASQA only), `qampari`(for QAMPARI only), and `claims`(for ELI5 only)
+- `pr`: citation precision and recall
+
+Other optional flagf:
+- `model`: openai model or model path in huggingface. By default the model is `got-3,5-turbo`, and the openai api key is from environment variable, please set `expport OPENAI_API_KEY=your_token`
+- `save_path`: the output path of the result
+- `dataset` and `demo`: dataset file and the demonstration file for prompts, by default ASQA.
+- `ndoc`: number of documents. Not applicable for some methods that donot use fixed number of documents.
+- `shots`: number of few shots
 
 ### Constructing a Citation Generation Pipeline
 To construct a pipeline, follow the steps in the demonstration.ipynb file or our video on [Youtube](https://youtu.be/KaNICbbmCn0)
