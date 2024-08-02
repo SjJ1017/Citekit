@@ -42,7 +42,7 @@ Some files contain multiple methods. Use --mode to specify the desired method. F
 - `qa`(for ASQA only), `qampari`(for QAMPARI only), and `claims`(for ELI5 only)
 - `pr`: citation precision and recall
 
-Other optional flagf:
+Other optional flags:
 - `model`: openai model or model path in huggingface. By default the model is `got-3,5-turbo`, and the openai api key is from environment variable, please set `expport OPENAI_API_KEY=your_token`
 - `save_path`: the output path of the result
 - `dataset` and `demo`: dataset file and the demonstration file for prompts, by default ASQA.
@@ -50,7 +50,29 @@ Other optional flagf:
 - `shots`: number of few shots
 
 ### Constructing a Citation Generation Pipeline
-To construct a pipeline, follow the steps in the demonstration.ipynb file or our video on [Youtube](https://youtu.be/KaNICbbmCn0)
+To construct a pipeline, follow the steps in the demonstration.ipynb file or our video on [Youtube](https://youtu.be/KaNICbbmCn0), a simple example is presented below:
+
+```python
+dataset = FileDataset('data/asqa.json')
+
+with open('prompts/asqa.json','r',encoding='utf-8') as file:
+        demo = json.load(file)
+        instruction =  demo['INST']
+
+prompt = Prompt(template='<INST><question><docs><prefix><span>Answer: ',
+                components={'INST':'{INST}\n\n', 
+                            'question':'Question:{question}\n\n',
+                            'docs':'{docs}\n',
+                            'span':'The highlighted spans are: \n{span}\n\n',
+                            'prefix':'Prefix: {prefix}\n\n',
+                            })
+
+evaluator = DefaultEvaluator(criteria = ['str_em','length','rouge'])
+attributer = AttributingModule(model='gpt-3.5-turbo')
+llm = LLM(model='gpt-3.5-turbo',prompt_maker=prompt, self_prompt={'INST':instruction})
+pipeline = Sequence(sequence = [llm], head_prompt_maker = prompt, evaluator = evaluator, dataset = dataset)
+pipeline.run_on_dataset(datakeys=['question','docs'], init_docs='docs')
+```
 
 ## Contributing
 
