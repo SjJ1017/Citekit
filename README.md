@@ -52,7 +52,7 @@ Other optional flags:
 - `shots`: number of few shots
 
 ### Constructing a Citation Generation Pipeline
-To construct a pipeline, follow the steps in the demonstration.ipynb file or our video on [Youtube](https://youtu.be/KaNICbbmCn0), a simple example is presented below:
+To construct a pipeline, follow the steps in the `demonstration.ipynb` file or our video on [Youtube](https://youtu.be/KaNICbbmCn0), a simple example is presented below:
 
 ```python
 dataset = FileDataset('data/asqa.json')
