@@ -45,7 +45,7 @@ Some files contain multiple methods. Use --mode to specify the desired method. F
 - `pr`: citation precision and recall
 
 Other optional flags:
-- `model`: openai model or model path in huggingface. By default the model is `gpt-3,5-turbo`, and please set `export OPENAI_API_KEY=your_token`
+- `model`: openai model or model path in huggingface. By default the model is `gpt-3.5-turbo`, and please set `export OPENAI_API_KEY=your_token`
 - `save_path`: the output path of the result
 - `dataset` and `demo`: dataset file and the demonstration file for prompts, by default ASQA.
 - `ndoc`: number of documents. Not applicable for some methods that donot use fixed number of documents.
