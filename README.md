@@ -1,7 +1,9 @@
 # Citekit
 
+<div align="center">
 <a href="///" target="_blank"><img src=//></a><a href="https://github.com/SjJ1017/Citekit/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/LICENSE-MIT-green"></a>
-
+<a href="https://arxiv.org/abs/2408.04662" target="_blank"><img src=https://img.shields.io/badge/arXiv-b5212f.svg?logo=arxiv></a>
+</div>
 
 ## Overview
 
@@ -43,7 +45,7 @@ Some files contain multiple methods. Use --mode to specify the desired method. F
 - `pr`: citation precision and recall
 
 Other optional flags:
-- `model`: openai model or model path in huggingface. By default the model is `got-3,5-turbo`, and the openai api key is from environment variable, please set `expport OPENAI_API_KEY=your_token`
+- `model`: openai model or model path in huggingface. By default the model is `gpt-3,5-turbo`, and please set `export OPENAI_API_KEY=your_token`
 - `save_path`: the output path of the result
 - `dataset` and `demo`: dataset file and the demonstration file for prompts, by default ASQA.
 - `ndoc`: number of documents. Not applicable for some methods that donot use fixed number of documents.

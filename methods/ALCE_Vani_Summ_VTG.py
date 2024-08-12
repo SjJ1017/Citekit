@@ -21,6 +21,7 @@ if __name__ == '__main__':
     parser.add_argument("--rouge",  action='store_true', help="use rouge")
     parser.add_argument("--temp", type=float, default=0.5, help="temperature")
     parser.add_argument("--qa",  action='store_true', help="eval qa")
+    parser.add_argument("--mauve",  action='store_true', help="eval mauve")
     parser.add_argument("--length",  default=True, help="eval length")
     parser.add_argument("--claims",  action='store_true', help="eval length")
     parser.add_argument("--qampari", action='store_true', help="eval qampari")
@@ -28,7 +29,7 @@ if __name__ == '__main__':
     parser.add_argument("--demo", type=str, default='prompts/asqa_default.json', help="demo")
     parser.add_argument("--doctype", type=str, default='text', help="demo")
     parser.add_argument("--mode", type=str, default='vanilla', help="mode: text, summary, extraction or VTG")
-    parser.add_argument("--data_num", type=int, default=200, help="num of data")
+    parser.add_argument("--data_num", type=int, default=1000, help="num of data")
     args = parser.parse_args()
 
     # DATA LOADING
